@@ -1,5 +1,50 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> goanimate-wrapper/
+│
+├── index.html              (Dashboard)
+├── character.html          (Character Creator)
+├── editor.html             (Video Editor)
+│
+├── css/
+│   ├── main.css
+│   ├── header.css
+│   ├── editor.css
+│
+├── js/
+│   ├── app.js
+│   ├── character.js
+│   ├── editor.js
+│
+└── assets/
+    └── icons/
+<html> header {
+  background: #1f1f1f;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff7a00;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.nav button {
+  background: #ff7a00;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
 <head>
   <title>GoAnimate Wrapper</title>
   <link rel="stylesheet" href="css/header.css">
@@ -20,4 +65,92 @@
 </div>
 
 </body>
-</html>
+</html> <!DOCTYPE html>
+<html>
+<head>
+  <title>Character Creator</title>
+  <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Character Creator</div>
+</header>
+
+<div style="display:flex; height:calc(100vh - 56px);">
+
+  <!-- Sidebar -->
+  <div style="width:250px; background:#eee; padding:10px;">
+    <h3>Styles</h3>
+    <button onclick="selectStyle('Business')">Business</button><br>
+    <button onclick="selectStyle('Kid')">Kid</button><br>
+    <button onclick="selectStyle('Anime')">Anime</button>
+  </div>
+
+  <!-- Preview -->
+  <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+    <div id="characterPreview" style="width:300px;height:400px;border:1px solid #aaa;">
+      Character Preview
+    </div>
+  </div>
+
+</div>
+
+<script src="js/character.js"></script>
+</body>
+</html> function selectStyle(style) {
+  document.getElementById("characterPreview").innerText =
+    "Selected Style: " + style;
+} <!DOCTYPE html>
+<html>
+<head>
+  <title>Video Editor</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Video Editor</div>
+</header>
+
+<div id="editor">
+
+  <div id="stage">Scene Preview</div>
+
+  <div id="timeline">
+    <div class="clip">Scene 1</div>
+  </div>
+
+</div>
+
+<script src="js/editor.js"></script>
+</body>
+</html> #editor {
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+}
+
+#stage {
+  flex: 1;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#timeline {
+  height: 120px;
+  background: #222;
+  padding: 10px;
+}
+
+.clip {
+  width: 120px;
+  height: 40px;
+  background: orange;
+  color: black;
+  text-align: center;
+  line-height: 40px;
+}
